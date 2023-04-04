@@ -98,6 +98,7 @@ const SceneDisplay = () => {
 		const [remote, element] = ScenePreviewBuilder(project.scene);
 		project.remote = remote;
 		project.HTMLElement = element;
+		project.remote.seek(project.cursorPos);
 		container.appendChild(element);
 
 		resizeInnerToFitOuter(container, element);

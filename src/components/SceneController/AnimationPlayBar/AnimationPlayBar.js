@@ -15,6 +15,7 @@ const AnimationPlayBar = () => {
 
 			const updateProgress = () => {
 				setCurrentTime(project.remote.animations[0].currentTime);
+				project.cursorPos = project.remote.animations[0].currentTime;
 				requestAnimationFrame(updateProgress);
 			};
 
@@ -54,8 +55,9 @@ const AnimationPlayBar = () => {
 
 			<Box sx={{
 				backgroundColor: "red",
-				height: "14px",
-				width: `${progress * 100}%`
+				height: "16px",
+				width: `${progress * 100}%`,
+				fontSize: "12px"
 			}}>
 
 				{millisecondsToDisplayTime(currentTime)}

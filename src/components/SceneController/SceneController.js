@@ -25,7 +25,10 @@ const SceneController = () => {
 
 	return (
 		<>
+		
 			<AnimationPlayBar />
+		
+			
 			<Box
 				sx={{
 					flexGrow: 0,

@@ -62,7 +62,8 @@ export class Project {
         this.loadedAssets = loadedAssets;
         this.scene = new Scene(600, 480, length);
         this.remote = null;
-        this.sceneElements = []
+        this.sceneElements = [];
+        this.cursorPos = 0;
     }
 
     addLoadedAsset(asset) {

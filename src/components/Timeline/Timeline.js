@@ -25,38 +25,39 @@ const Timeline = () => {
 			accept: 'image_asset',
 			canDrop: () => true,
 			drop: (item, monitor) => {
-				const new_asset = new ImageElement(project.scene, item.metadata.dimentions[0], item.metadata.dimentions[1], item.image);
+				const new_asset = new ImageElement(project.scene, item.metadata.dimentions[0], item.metadata.dimentions[1], 1000, 3500, item.image);
 				const k = [
 					{
 						top: "50%",
 						left: "50%",
-						opacity: 0.9,
-						transform: "rotate(0deg) translate3D(-50%, -50%, 0)"
-					},
-					{
-						top: "50%",
-						left: "50%",
-						opacity: 0.9,
-						transform: "rotate(30deg) translate3D(-50%, -50%, 0)"
+						opacity: 1,
+						transform: "rotate(0deg) translate3D(-50%, -50%, 0)",
+
 					},
 					{
 						top: "50%",
 						left: "50%",
 						opacity: 1,
-						transform: "rotate(-30deg) translate3D(-50%, -50%, 0)"
+						transform: "rotate(30deg) translate3D(-50%, -50%, 0)",
+					},
+					{
+						top: "50%",
+						left: "50%",
+						opacity: 1,
+						transform: "rotate(-30deg) translate3D(-50%, -50%, 0)",
 					},
 					{
 						top: "20%",
 						left: "80%",
 						opacity: 1,
-						transform: "rotate(180deg) translate3D(-50%, -50%, 0)"
+						transform: "rotate(180deg) translate3D(-50%, -50%, 0)",
 					}
 				]
 
-				new_asset.lifecycle.addKeyFrame(new Keyframe(0, k[0]));
-				new_asset.lifecycle.addKeyFrame(new Keyframe(1250, k[1]));
-				new_asset.lifecycle.addKeyFrame(new Keyframe(2500, k[2]));
-				new_asset.lifecycle.addKeyFrame(new Keyframe(3000, k[3]));
+	
+				new_asset.addKeyFrame(new Keyframe(0, k[1]));
+				new_asset.addKeyFrame(new Keyframe(2500, k[2]));
+				new_asset.addKeyFrame(new Keyframe(3000, k[3]));
 				new_asset.scale = (Math.random() / 3);
 
 				project.scene.addChild(new_asset);
@@ -104,20 +105,35 @@ const Timeline = () => {
 				height: '100%',
 				background: colors.redAccent[900],
 				overflow: "auto",
-				position: "relative"
+				position: "relative",
 			}}
 
 			ref={drop}
 		>
+			<Box sx={{
+				width: 'calc(100% - 40px)',
+				paddingTop: "20px",
+				position: 'relative',
+				height: "100%",
+				margin: "0 auto"
+			}}>
 
-			<TimelineCursor pos={progress} />
+				<TimelineCursor pos={progress} />
 
-			{project.scene.children && project.scene.children.map((e) =>
-				<ElementLifecycle element={e} key={e.id} />
-			)}
+				<Box sx={{
+					width: '100%',
+				}}>
+					{project.scene.children && project.scene.children.map((e) =>
+						<ElementLifecycle element={e} key={e.id} />
+					)}
+				</Box>
 
-			<Box>
-				{inspect(project)}
+
+
+				<Box>
+					{inspect(project)}
+				</Box>
+
 			</Box>
 
 		</Box>

@@ -13,13 +13,13 @@ const Editor = () => {
     const colors = tokens(theme.palette.mode);
 
     return (
-        <ProjectContextProvider init={new Project([], 3000)}>
+        <ProjectContextProvider init={new Project([], 5000)}>
             <DndProvider backend={HTML5Backend}>
                 <Box sx={{
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
-                    backgroundColor: colors.primary[800],
+                    backgroundColor: colors.grey[800],
                 }}>
                     <Box sx={{
                         display: 'flex',
@@ -47,7 +47,7 @@ const Editor = () => {
 
                     <Box sx={{
                         flex: 1,
-                        backgroundColor: colors.primary[700],
+                        backgroundColor: colors.grey[700],
                         height: '50%',
                         flex: '0 0 50%',
                     }}>

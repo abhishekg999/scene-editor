@@ -6,7 +6,11 @@ const Settings = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
-    return <div>Settings</div>
+    return (
+        <Box>
+            Settings
+        </Box>
+    )
 }
 
 export default Settings;
