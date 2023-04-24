@@ -1,6 +1,20 @@
-# Getting Started with Create React App
+# Scene Editor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Scene Editor is a (*work in progress :)*) graphical editor for CSS Animations. Powered by the [Web Animation API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) and Scene.js.
+
+![Scene Editor](https://user-images.githubusercontent.com/32551454/234119732-9ac75a7a-398d-4e79-ab4d-96c1048e5b37.png)
+
+Scene Editor uses the custom Scene.js to manage keyframes given to assets. This is a project that I plan to continue to work on. I believe that the Web Animations Api is very underutilized, and even though CSS Animations at this complexity are pretty niche, it is still something that would be cool to have. Functionality such as spritesheets are even possible using masks and the css `steps()` function give room to so many possibilities.
+
+Currently Scene.js returns a structured object like this:
+
+```js
+[HTMLElement, Remote] = scene.create();
+```
+
+The usage also allows for a completely JS free implementation, however I believe the remote has far more use case. The remote gives fine control of the animation, and the user can simply choose to add the HTMLElement in any parent container div as seen fit, and the animation will run exactly as intended.
+
+Editor is will WIP tho :).
 
 ## Available Scripts
 
@@ -14,11 +28,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -28,16 +37,6 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
 ## Learn More
 
